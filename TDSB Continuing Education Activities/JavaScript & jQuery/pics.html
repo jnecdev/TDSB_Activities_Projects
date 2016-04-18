@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head> 
+		<meta charset="utf-8">
+		<title>Slide Show</title>
+		<script type="text/javascript">
+		var position = 1;
+		function first()
+		{
+			position = 1;
+			var e1 = document.getElementById("pic_num");
+			e1.innerHTML = "1";
+			var im = document.getElementById("cur_pic");
+			im.setAttribute("src","IM1.jpg");
+		}
+		function previous()
+		{
+			if (position > 1)
+			{
+					position--;
+					var e1 = document.getElementById("pic_num");
+					e1.innerHTML = position;
+					var im = document.getElementById("cur_pic");
+					im.setAttribute("src","IM"+ position +".jpg");
+					
+			}
+			if (position == 1)
+				{
+					position = 21;
+				}
+			
+		}
+		function next()
+		{
+			if (position < 20)
+			{
+				position++;
+				var e1 = document.getElementById("pic_num");
+				e1.innerHTML = position;
+				var im = document.getElementById("cur_pic");
+				im.setAttribute("src","IM"+ position +".jpg");
+			}
+			
+			if (position == 20)
+			{
+				position = 0;
+			}
+		}
+		function last()
+		{
+			position = 20;
+			var e1 = document.getElementById("pic_num");
+			e1.innerHTML = "20";
+			var im = document.getElementById("cur_pic");
+			im.setAttribute("src","IM20.jpg");
+		}
+		</script>
+	</head>
+	<body style="text-align: center; color:black; background-color:gold">
+		<h1>Toronto May 2006<h1>
+		<h3>Picture #<span id="pic_num">1</span></h3>
+		<p><img src="IM1.jpg" id="cur_pic"></p>
+		<p><strong>
+			<input type="button" value="|<" onclick="first();">
+			<input type="button" value="<<" onclick="previous();">
+			<input type="button" value=">>" onclick="next();">
+			<input type="button" value=">|" onclick="last();">
+		</p></strong>
+	</body>
+</html>

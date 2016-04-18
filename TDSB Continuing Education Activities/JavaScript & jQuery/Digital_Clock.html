@@ -1,0 +1,59 @@
+<!--
+Digital Clock v.6  - when the page is loaded, current hours,
+                     minutes seconds and AM/PM are shown dynamically
+-->
+
+<html>
+<head><title>DIGITAL CLOCK V.6</title>
+<script type="text/JavaScript">
+function updateTime()
+{
+  var hours, AM, 
+      leftDigit, rightDigit,
+      minutes, seconds;
+
+  var rightNow = new Date();
+
+  hours = rightNow.getHours(); // getting hours
+  (hours < 12) ? AM = true : AM = false;
+  if (hours > 12)
+  {
+		hours = hours - 12;
+  }
+
+  leftDigit = Math.floor(hours / 10);
+  rightDigit = hours % 10;
+  document.images[0].src = "digits/" + leftDigit + ".png";
+  document.images[1].src = "digits/" + rightDigit + ".png";
+
+  minutes = rightNow.getMinutes();
+  leftDigit = Math.floor(minutes / 10);
+  rightDigit = minutes % 10;
+  document.images[3].src = "digits/" + leftDigit + ".png";
+  document.images[4].src = "digits/" + rightDigit + ".png";
+
+  seconds = rightNow.getSeconds();
+  leftDigit = Math.floor(seconds / 10);
+  rightDigit = seconds % 10;
+  document.images[6].src = "digits/" + leftDigit + ".png";
+  document.images[7].src = "digits/" + rightDigit + ".png";
+  var twoChars = document.getElementById("AMPM");
+  (AM) ? twoChars.innerHTML = "AM" : twoChars.innerHTML = "PM";
+}
+</script>
+</head>
+<body style="background-image: url(neutral.jpg)"
+onLoad="setInterval('updateTime()', 1000)">
+<div style="text-align: center">
+<img src="digits/0.png">
+<img src="digits/0.png">
+<img src="digits/sc.png">
+<img src="digits/0.png">
+<img src="digits/0.png">
+<img src="digits/sc.png">
+<img src="digits/0.png">
+<img src="digits/0.png">
+<span style="font-size: xx-large; font-weight: bold; color: #C600c6" id="AMPM">AM</span>
+</div>
+</body>
+</html>

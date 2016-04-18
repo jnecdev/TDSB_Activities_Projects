@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Color Mixer</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function()
+{
+	var red_number = 255;
+	var green_number = 255;
+	var blue_number = 255;
+	
+	jQuery("#red_list").change(function()
+	{
+		grade = jQuery("#red_list").val();
+		len = grade.length;
+		grade = grade.substring(0, len - 1);
+		red_number = Math.round(grade * 2.55);
+		jQuery("#mixer").css("background-color",
+						     "rgb(" + red_number + ","
+							 + green_number + "," + blue_number + ")");
+	});
+	jQuery("#green_list").change(function()
+	{
+		grade = jQuery("#green_list").val();
+		len = grade.length;
+		grade = grade.substring(0, len - 1);
+		green_number = Math.round(grade * 2.55);
+		jQuery("#mixer").css("background-color",
+						     "rgb(" + red_number + ","
+							 + green_number + "," + blue_number + ")");
+	});
+	jQuery("#blue_list").change(function()
+	{
+		grade = jQuery("#blue_list").val();
+		len = grade.length;
+		grade = grade.substring(0, len - 1);
+		blue_number = Math.round(grade * 2.55);
+		jQuery("#mixer").css("background-color",
+						     "rgb(" + red_number + ","
+							 + green_number + "," + blue_number + ")");
+	});
+});
+</script>
+</head>
+<body>
+<div style="width: 400px; height: 400px; background-color: white;
+border: 5px solid black; margin: auto" id="mixer">
+</div>
+<br>
+<table style="margin: auto">
+<tr>
+<td>
+Red: <select id="red_list">
+<option>100%</option>
+<option>90%</option>
+<option>80%</option>
+<option>70%</option>
+<option>60%</option>
+<option>50%</option>
+<option>40%</option>
+<option>30%</option>
+<option>20%</option>
+<option>10%</option>
+<option>0%</option>
+</select>
+</td>
+
+<td>
+Green: <select id="green_list">
+<option>100%</option>
+<option>90%</option>
+<option>80%</option>
+<option>70%</option>
+<option>60%</option>
+<option>50%</option>
+<option>40%</option>
+<option>30%</option>
+<option>20%</option>
+<option>10%</option>
+<option>0%</option>
+</select>
+</td>
+
+<td>
+Blue: <select id="blue_list">
+<option>100%</option>
+<option>90%</option>
+<option>80%</option>
+<option>70%</option>
+<option>60%</option>
+<option>50%</option>
+<option>40%</option>
+<option>30%</option>
+<option>20%</option>
+<option>10%</option>
+<option>0%</option>
+</select>
+</td>
+
+</tr>
+</table>
+</body>
+</html>

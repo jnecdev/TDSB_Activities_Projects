@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hiding Showing Toggling</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script type="text/javascript">
+		jQuery(document).ready(function()
+		{
+			paragraphs = $("p");
+			$("#show_btn").click(function()	// #show_btn is the id in html part of the program.
+			{
+				var user_input = $("#pr_numbers").val();
+				paragraphs.eq(user_input-1).show(); 
+			});
+			$("#hide_btn").click(function()	
+			{
+			var user_input = $("#pr_numbers").val();
+			paragraphs.eq(user_input-1).hide();
+			});
+			$("#toggle_btn").click(function()	
+			{
+			var user_input = $("#pr_numbers").val();
+			paragraphs.eq(user_input-1).toggle();
+			});
+		});
+		</script>
+	</head>
+	<body>
+	<p>Paragraph 1</p>
+	<p>Paragraph 2</p>
+	<p>Paragraph 3</p>
+	<p>Paragraph 4</p>
+	<p>Paragraph 5</p>
+	<p>Paragraph 6</p>
+	<p>
+	<input type="button" id="show_btn" value="Show">
+	<input type="button" id="hide_btn" value="Hide">
+	<input type="button" id="toggle_btn" value="Toggle">
+	Paragraphs:<input type="textbox" id="pr_numbers">
+	</body>
+</html>

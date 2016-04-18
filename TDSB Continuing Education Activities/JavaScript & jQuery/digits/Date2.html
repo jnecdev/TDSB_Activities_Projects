@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Date/Time Demo</title>
+		<script type="text/javascript">
+		function timer_func2()
+		{
+			//var str = "2015-12-01";
+			//var currentDT = new Date(str);
+			var currentDT = new Date();
+			var secs = currentDT.getSeconds();
+			var pic_secs = secs % 10;
+			var pic_element = document.getElementById("s_right");
+			pic_element.setAttribute("src", +pic_secs+".png");
+			pic_secs = Math.floor(secs/10);
+			pic_element=document.getElementById("s_left");
+			pic_element.setAttribute("src",+pic_secs+".png");
+			
+			var mins = currentDT.getMinutes();
+			var pic_mins = mins % 10;
+			var pic_element2 = document.getElementById("m_right");
+			pic_element2.setAttribute("src",+pic_mins+".png");
+			pic_mins = Math.floor(mins/10);
+			pic_element2 = document.getElementById("m_left")
+			pic_element2.setAttribute("src",+pic_mins+".png");
+			
+			var hrs = currentDT.getHours();
+			var pic_hrs = hrs % 10;
+			var pic_element2 = document.getElementById("h_right");
+			pic_element2.setAttribute("src",+pic_hrs+".png");
+			pic_hrs = Math.floor(hrs/10);
+			pic_element2 = document.getElementById("h_left")
+			pic_element2.setAttribute("src",+pic_hrs+".png");
+		}
+		</script>
+	</head>
+	<body onLoad="setInterval(timer_func2, 1000);">
+	<img src="0.png" id="h_left">
+	<img src="0.png" id="h_right">
+	<img src="sc.png">
+	<img src="0.png" id="m_left">
+	<img src="0.png" id="m_right">
+	<img src="sc.png">
+	<img src="0.png" id="s_left">
+	<img src="0.png" id="s_right">
+	</script>
+	</body>
+</html>
